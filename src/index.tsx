@@ -31,12 +31,10 @@ function init() {
 
   ReactDOM.render(
       <Provider store={store}>
-        <BrowserRouter>
           <App
             maxMistakes={3}
             gameTime={5}
           />
-        </BrowserRouter>
       </Provider>,
       document.querySelector(`#root`)
   );

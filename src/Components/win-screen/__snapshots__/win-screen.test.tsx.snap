@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Win screen correctly render 1`] = `
+<section
+  className="result"
+>
+  <div
+    className="result__logo"
+  >
+    <img
+      alt="Угадай мелодию"
+      height="83"
+      src="img/melody-logo.png"
+      width="186"
+    />
+  </div>
+  <h2
+    className="result__title"
+  >
+    Ура победа!
+  </h2>
+  <p
+    className="result__total result__total--fail"
+  >
+    Вы ответили на все вопросы, сделав всего 
+    0
+     шибок из допустимых 
+    0
+    !
+  </p>
+  <button
+    className="replay"
+    onClick={[Function]}
+    type="button"
+  >
+    Попробовать ещё раз
+  </button>
+</section>
+`;

@@ -10,7 +10,7 @@ import AuthorizationScreen from "../authorization-screen/authorization-screen";
 import {ActionCreator} from "../../reducer";
 import {connect} from "react-redux";
 import {Operation} from "../../reducer";
-import {Switch, Route, Redirect} from "react-router-dom";
+import {Switch, Route, Redirect, BrowserRouter} from "react-router-dom";
 import {appProps, artistUserAnswer, genreUserAnswer} from "../../types";
 import history from '../../history'
 import WinScreen from "../win-screen/win-screen";
@@ -66,12 +66,14 @@ class App extends PureComponent<appProps, {}> {
   render() {
     const {onAuth, resetGame, isAuthorizationRequired, mistakes, maxMistakes, step} = this.props;
 
-    return <Switch>
-      <Route exact path={`/`} render={() => this._getScreen()}/>
-      <Route exact path={`/auth`} render={() => <AuthorizationScreen onAuthorization={onAuth} isAuthorizationRequired={isAuthorizationRequired}/>}/>
-      <Route exact path={`/lose`} render={() => <LoseScreen replayButtonClickHandler={resetGame} mistakes={mistakes} maxMistakes={maxMistakes}/>}/>
-      <Route exact path={`/win`} render={() => <WinScreen replayButtonClickHandler={resetGame} mistakes={mistakes} maxMistakes={maxMistakes} steep={step}/>}/>
-    </Switch>;
+    return <BrowserRouter>
+      <Switch>
+        <Route exact path={`/`} render={() => this._getScreen()}/>
+        <Route exact path={`/auth`} render={() => <AuthorizationScreen onAuthorization={onAuth} isAuthorizationRequired={isAuthorizationRequired}/>}/>
+        <Route exact path={`/lose`} render={() => <LoseScreen replayButtonClickHandler={resetGame} mistakes={mistakes} maxMistakes={maxMistakes}/>}/>
+        <Route exact path={`/win`} render={() => <WinScreen replayButtonClickHandler={resetGame} mistakes={mistakes} maxMistakes={maxMistakes} steep={step}/>}/>
+      </Switch>
+    </BrowserRouter>;
   }
 }
 

@@ -33,7 +33,6 @@ type appProps = {
   questions: Array<question>,
   mistakes: number,
   maxMistakes: number,
-  gameTime: number,
   step: number,
   isAuthorizationRequired: boolean,
   onUserAnswer: (userAnswer: userAnswer, question: question) => void,

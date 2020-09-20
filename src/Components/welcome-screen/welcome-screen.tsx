@@ -4,7 +4,7 @@ import {PureComponent} from "react";
 type props = {
   errorsCount: number,
   onWelcomeButtonClick: () => void,
-}
+};
 
 class WelcomeScreen extends PureComponent<props, {}> {
   render() {
