@@ -13,6 +13,7 @@ import {Operation} from "../../reducer";
 import {Switch, Route, Redirect} from "react-router-dom";
 import {appProps, artistUserAnswer, genreUserAnswer} from "../../types";
 import history from '../../history'
+import WinScreen from "../win-screen/win-screen";
 
 class App extends PureComponent<appProps, {}> {
   _getScreen() {
@@ -20,7 +21,7 @@ class App extends PureComponent<appProps, {}> {
     const {questions, mistakes, maxMistakes, onUserAnswer, step, resetGame, isAuthorizationRequired} = this.props;
     const question = questions[step];
 
-    if(mistakes >= maxMistakes){
+    if(mistakes > maxMistakes){
       return <Redirect to={`/lose`} />;
     }
 
@@ -35,6 +36,10 @@ class App extends PureComponent<appProps, {}> {
         errorsCount={maxMistakes}
         onWelcomeButtonClick={() => onWelcomeButtonClick()}
       />;
+    }
+
+    if (step === 10) {
+      return <Redirect to={`/win`} />;
     }
 
     if (questions[step] && questions[step].type === `artist`) {
@@ -59,13 +64,13 @@ class App extends PureComponent<appProps, {}> {
   }
 
   render() {
-    const {onAuth, resetGame, isAuthorizationRequired, mistakes, maxMistakes} = this.props;
+    const {onAuth, resetGame, isAuthorizationRequired, mistakes, maxMistakes, step} = this.props;
 
     return <Switch>
       <Route exact path={`/`} render={() => this._getScreen()}/>
       <Route exact path={`/auth`} render={() => <AuthorizationScreen onAuthorization={onAuth} isAuthorizationRequired={isAuthorizationRequired}/>}/>
       <Route exact path={`/lose`} render={() => <LoseScreen replayButtonClickHandler={resetGame} mistakes={mistakes} maxMistakes={maxMistakes}/>}/>
-      <Route exact path={`/win`} render={() => <AuthorizationScreen onAuthorization={onAuth} isAuthorizationRequired={isAuthorizationRequired}/>}/>
+      <Route exact path={`/win`} render={() => <WinScreen replayButtonClickHandler={resetGame} mistakes={mistakes} maxMistakes={maxMistakes} steep={step}/>}/>
     </Switch>;
   }
 }

@@ -12,7 +12,7 @@ class LoseScreen extends PureComponent<props, {}> {
   render() {
     const {replayButtonClickHandler, mistakes, maxMistakes} = this.props;
 
-    if(mistakes < maxMistakes){
+    if(mistakes <= maxMistakes){
       return <Redirect to={`/`} />
     }
 

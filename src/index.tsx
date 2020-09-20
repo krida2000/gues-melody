@@ -8,13 +8,11 @@ import thunk from "redux-thunk";
 import {compose} from "recompose";
 import {createAPI} from "./api";
 import {BrowserRouter} from "react-router-dom";
-import history from './history'
 
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 
 function init() {
-  console.log(history);
   const onUnauthorized = () => {
     store.dispatch(ActionCreator.setAuthorization(true));
   };
@@ -33,7 +31,7 @@ function init() {
 
   ReactDOM.render(
       <Provider store={store}>
-        <BrowserRouter history={history}>
+        <BrowserRouter>
           <App
             maxMistakes={3}
             gameTime={5}

@@ -27,7 +27,7 @@ class AuthorizationScreen extends PureComponent<props, {}> {
         </p>
         <p className="login__field">
           <label className="login__label" htmlFor="password">Пароль</label>
-          <input className="login__input" type="text" name="password" id="password" ref={pass}/>
+          <input className="login__input" type="password" name="password" id="password" ref={pass}/>
           <span className="login__error">Неверный пароль</span>
         </p>
         <button className="login__button button" type="submit" onClick={(evt) => {
