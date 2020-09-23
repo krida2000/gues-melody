@@ -1,3 +1,9 @@
+const ActionType = {
+  INCREMENT_MISTAKES: `INCREMENT_MISTAKES`,
+  INCREMENT_STEP: `INCREMENT_STEP`,
+  RESET: `RESET`,
+};
+
 const isArtistAnswerCorrect = (question, userAnswer) => {
   return userAnswer === question.song.artist;
 };
@@ -60,4 +66,5 @@ const reducer = (state = initialState, action) => {
 export {
   ActionCreator,
   reducer,
+  ActionType
 };
