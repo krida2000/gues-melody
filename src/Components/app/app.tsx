@@ -7,9 +7,10 @@ import GenreQuestionScreen from '../genre-question-screen/genre-question-screen'
 import withActivePlayer from "../../hocs/with-active-player/with-active-player";
 import withUserAnswer from "../../hocs/with-user-answer/with-user-answer";
 import AuthorizationScreen from "../authorization-screen/authorization-screen";
-import {ActionCreator} from "../../reducer";
 import {connect} from "react-redux";
-import {Operation} from "../../reducer";
+import {ActionCreator as GameActionCreator} from "../../reducer/game/game"
+import {Operation as DataOperation} from "../../reducer/data/data"
+import {Operation as UserOperation} from "../../reducer/user/user"
 import {Switch, Route, Redirect, BrowserRouter} from "react-router-dom";
 import {appProps, artistUserAnswer, genreUserAnswer} from "../../types";
 import history from '../../history'
@@ -110,27 +111,27 @@ class App extends PureComponent<appProps, {}> {
 
 const mapStateToProps = (state, ownProps) => {
   return Object.assign({}, ownProps, {
-    step: state.step,
-    mistakes: state.mistakes,
-    questions: state.questions,
-    isAuthorizationRequired: state.isAuthorizationRequired,
+    step: state.game.step,
+    mistakes: state.game.mistakes,
+    questions: state.data.questions,
+    isAuthorizationRequired: state.user.isAuthorizationRequired,
   });
 };
 
 const mapDispatchToProps = (dispatch) => ({
   onWelcomeButtonClick: () => {
-    dispatch(ActionCreator.incrementStep());
+    dispatch(GameActionCreator.incrementStep());
   },
   onUserAnswer: (userAnswer, question, mistakes, maxMistakes) => {
-    dispatch(ActionCreator.incrementStep());
-    dispatch(ActionCreator.incrementMistakes(userAnswer, question));
+    dispatch(GameActionCreator.incrementStep());
+    dispatch(GameActionCreator.incrementMistakes(userAnswer, question));
   },
   onAuth: (authData) => {
-    dispatch(Operation.login(authData));
+    dispatch(UserOperation.login(authData));
   },
   resetGame() {
-    dispatch(ActionCreator.reset());
-    dispatch(Operation.loadQuestions());
+    dispatch(GameActionCreator.reset());
+    dispatch(DataOperation.loadQuestions());
   },
 });
 

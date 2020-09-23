@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Authorization screen correctly render 1`] = `
+exports[`Authorization screen correctly render if authorization don't required 1`] = `null`;
+
+exports[`Authorization screen correctly render if authorization required 1`] = `
 <form
   action=""
   className="login__form"

@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Win screen correctly render 1`] = `
+exports[`Mistakes screen correctly render With 0 error 1`] = `
+<div
+  className="game__mistakes"
+/>
+`;
+
+exports[`Mistakes screen correctly render With 1 error 1`] = `
 <div
   className="game__mistakes"
 >

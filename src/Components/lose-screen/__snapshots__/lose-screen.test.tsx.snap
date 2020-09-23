@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Lose screen screen correctly render 1`] = `
+exports[`Lose screen correctly render if you don't loose 1`] = `null`;
+
+exports[`Lose screen correctly render if you really loose 1`] = `
 <section
   className="result"
 >

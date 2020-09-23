@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Win screen correctly render 1`] = `
+exports[`Win screen correctly render if you don't win 1`] = `null`;
+
+exports[`Win screen correctly render if you really win 1`] = `
 <section
   className="result"
 >
