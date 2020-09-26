@@ -24,8 +24,6 @@ function init() {
 
   const store = applyMiddleware(thunk.withExtraArgument(api))(createStore)(
     reducer,
-    // Я так и не понял, что компилятору TS не нравится
-    // eslint-disable-next-line
     // @ts-ignore
     window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
   );

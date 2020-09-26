@@ -2,7 +2,7 @@ import {reducer, ActionType, ActionCreator} from "./game";
 
 describe(`Reducer work correctly`, () => {
   it(`Reducer without parameters return initial state`, () => {
-    expect(reducer(void 0, {})).toEqual({
+    expect(reducer(undefined, {})).toEqual({
       step: -1,
       mistakes: 0,
     });

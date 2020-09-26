@@ -109,13 +109,13 @@ class App extends PureComponent<appProps, {}> {
 //   // })])).isRequired,
 // };
 
-const mapStateToProps = (state, ownProps) => {
-  return Object.assign({}, ownProps, {
+const mapStateToProps = (state) => {
+  return {
     step: state.game.step,
     mistakes: state.game.mistakes,
     questions: state.data.questions,
     isAuthorizationRequired: state.user.isAuthorizationRequired,
-  });
+  }
 };
 
 const mapDispatchToProps = (dispatch) => ({

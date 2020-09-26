@@ -15,7 +15,7 @@ const isGenreAnswerCorrect = (question, userAnswer) => {
 
 const ActionCreator = {
   incrementStep: () => ({
-    type: `INCREMENT_STEP`,
+    type: ActionType.INCREMENT_STEP,
     payload: 1,
   }),
 
@@ -30,14 +30,14 @@ const ActionCreator = {
     }
 
     return {
-      type: `INCREMENT_MISTAKES`,
+      type: ActionType.INCREMENT_MISTAKES,
       payload: isAnswerCorrect ? 0 : 1,
     };
   },
 
   reset: () => {
     return {
-      type: `RESET`,
+      type: ActionType.RESET,
     };
   }
 };
@@ -49,15 +49,15 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case `INCREMENT_STEP`: return Object.assign({}, state, {
+    case ActionType.INCREMENT_STEP: return Object.assign({}, state, {
       step: state.step + action.payload,
     });
 
-    case `INCREMENT_MISTAKES`: return Object.assign({}, state, {
+    case ActionType.INCREMENT_MISTAKES: return Object.assign({}, state, {
       mistakes: state.mistakes + action.payload,
     });
 
-    case `RESET`: return Object.assign({}, initialState);
+    case ActionType.RESET: return Object.assign({}, initialState);
   }
 
   return state;

@@ -1,3 +1,7 @@
+const ActionType = {
+  UPDATE_AUTHORIZATION: `UPDATE_AUTHORIZATION`,
+};
+
 const Operation = {
   checkAuthorization: () => (dispatch, getState, api) => {
     return api.get(`/login`)
@@ -24,7 +28,7 @@ const Operation = {
 const ActionCreator = {
   setAuthorization: (isAuthorizationRequired) => {
     return {
-      type: `UPDATE_AUTHORIZATION`,
+      type: ActionType.UPDATE_AUTHORIZATION,
       payload: isAuthorizationRequired,
     };
   }
@@ -36,11 +40,9 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case `UPDATE_AUTHORIZATION`: return Object.assign({}, state, {
+    case ActionType.UPDATE_AUTHORIZATION: return Object.assign({}, state, {
       isAuthorizationRequired: action.payload,
     });
-
-    case `RESET`: return Object.assign({}, initialState);
   }
 
   return state;
@@ -50,4 +52,6 @@ export {
   ActionCreator,
   Operation,
   reducer,
+  ActionType,
+  initialState
 };
