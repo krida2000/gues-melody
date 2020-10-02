@@ -2,6 +2,15 @@ import * as React from "react";
 import * as renderer from "react-test-renderer";
 import {App} from "./app";
 import {question} from "../../types"
+
+// import {shallow, configure} from "enzyme";
+// import * as Adapter from "enzyme-adapter-react-16";
+// import {shallowToJson} from "enzyme-to-json";
+//
+// configure({
+//   adapter: new Adapter(),
+// });
+
 const noop = () => {
   // do nothing
 };
@@ -119,5 +128,4 @@ describe(`App screen correctly render`, () => {
 
     expect(tree).toMatchSnapshot();
   });
-
 })

@@ -9,7 +9,7 @@ type props = {
   question: artistQuestion,
   onAnswer: (artist: artistUserAnswer) => void,
   mistakes: number,
-  renderPlayer: (string, number) => React.ReactNode,
+  renderPlayer: (src : string, id : number) => React.ReactNode,
 }
 
 class ArtistQuestionScreen extends PureComponent<props, {}> {
@@ -69,4 +69,5 @@ class ArtistQuestionScreen extends PureComponent<props, {}> {
   }
 }
 
+export {FIRST_PLAYER_ID};
 export default ArtistQuestionScreen;

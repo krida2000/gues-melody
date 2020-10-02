@@ -177,3 +177,52 @@ exports[`App screen correctly render App screen with win correctly render 1`] = 
   </button>
 </section>
 `;
+
+exports[`App screen correctly render App screen with win correctly render 2`] = `
+<ContextProvider
+  value={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "key": "q4dyow",
+        "pathname": "/win",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <Switch>
+    <Route
+      exact={true}
+      path="/"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      path="/auth"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      path="/lose"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      path="/win"
+      render={[Function]}
+    />
+  </Switch>
+</ContextProvider>
+`;
