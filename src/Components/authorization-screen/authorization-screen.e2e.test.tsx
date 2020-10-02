@@ -11,19 +11,25 @@ it(`Authorization screen button click work correctly`, () => {
   const clickHandler = jest.fn();
   const app = mount(<AuthorizationScreen isAuthorizationRequired={true} onAuthorization={clickHandler} />);
 
-  // const loginInp = app.find(`input`).at(0);
-  // const passInp = app.find(`input`).at(1);
+  const loginInp = app.find(`input`).at(0);
+  const passInp = app.find(`input`).at(1);
+
+
+  loginInp.instance().value = `log`;
+  passInp.instance().value = `pass`;
+  // loginInp.value = `log`;
+  // loginInp.simulate(`change`, { target: {id: `login`, name: 'login', value: 'log' } });
+  // passInp.simulate(`change`, { target: {id: `password`, name: `password`, value: `pass` }});
   //
-  // loginInp.simulate(`change`, { target: { value: `log` } });
-  // passInp.simulate(`change`, { target: {value: `pass`} });
-  //
+  // app.update();
+
   const startButton = app.find(`button`);
   startButton.simulate(`click`);
-  //
+
   // expect(loginInp.prop('value')).toEqual(`log`);
 
   expect(clickHandler).toHaveBeenCalledTimes(1);
-  expect(clickHandler).toHaveBeenNthCalledWith(1, {login: ``, password: ``});
+  expect(clickHandler).toHaveBeenNthCalledWith(1, {login: `log`, password: `pass`});
 });
 
 

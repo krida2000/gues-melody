@@ -22,8 +22,8 @@ class AuthorizationScreen extends PureComponent<props, {}> {
     return (
       <form className="login__form" action="">
         <p className="login__field">
-          <label className="login__label" htmlFor="name">Логин</label>
-          <input className="login__input" type="text" name="name" id="name" ref={login}/>
+          <label className="login__label" htmlFor="login">Логин</label>
+          <input className="login__input" type="text" name="login" id="login" ref={login} />
         </p>
         <p className="login__field">
           <label className="login__label" htmlFor="password">Пароль</label>
