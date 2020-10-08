@@ -4,9 +4,10 @@ import AudioPlayer from "../../Components/audio-player/audio-player.js";
 import ArtistQuestionScreen from "../../Components/artist-question-screen/artist-question-screen";
 import {Subtract} from "utility-types";
 
-type injectedProps = {
-  isPlaying: boolean,
-  isLoading: boolean,
+type props = {
+  isPlaying: boolean;
+  playButtonClickHandler: () => void;
+  src: string;
 }
 
 type state = {
@@ -15,11 +16,11 @@ type state = {
 }
 
 const withAudio = (Component) => {
-  type P = React.ComponentProps<typeof Component>;
+  // type P = React.ComponentProps<typeof Component>;
 
-  type store = Subtract<P, injectedProps>;
+  // type store = Subtract<P, injectedProps>;
 
-  class WithAudio extends PureComponent<store, state> {
+  class WithAudio extends PureComponent<props, state> {
     private audioRef: React.RefObject<HTMLAudioElement>;
 
     constructor(props) {
@@ -66,7 +67,7 @@ const withAudio = (Component) => {
     componentDidUpdate() {
       const audio = this.audioRef.current;
 
-      if (this.props.isPlaying) {
+      if (!this.props.isPlaying) {
         audio.play();
       } else {
         audio.pause();
