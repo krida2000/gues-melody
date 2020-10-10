@@ -1,22 +1,28 @@
 import {PureComponent} from "react";
 import * as React from "react";
 import {Subtract} from "utility-types";
+import genreQuestion from "../../mocks/questions";
 
 type injectedProps = {
   onAnswer: () => void,
   onChange: (i: number, value: boolean) => React.ReactNode,
-}
+};
 
 type state = {
   userAnswer: Array<boolean>,
-}
+};
+
+type props = {
+  onAnswer: (answer: Array<boolean>) => void,
+  question: genreQuestion,
+};
 
 const withUserAnswer = (Component) => {
-  type P = React.ComponentProps<typeof Component>;
+  // type P = React.ComponentProps<typeof Component>;
+  //
+  // type store = Subtract<P, injectedProps>;
 
-  type store = Subtract<P, injectedProps>;
-
-  class WithUserAnswer extends PureComponent<store, state> {
+  class WithUserAnswer extends PureComponent<props, state> {
     constructor(props) {
       super(props);
 

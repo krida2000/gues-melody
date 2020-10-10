@@ -2,7 +2,6 @@ import * as React from "react";
 import {configure, mount} from "enzyme";
 import * as Adapter from "enzyme-adapter-react-16";
 import withAudio from "./with-audio";
-import GenreQuestionScreen from "../../Components/genre-question-screen/genre-question-screen";
 
 configure({adapter: new Adapter()});
 
